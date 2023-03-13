@@ -45,12 +45,12 @@ const Hud = () => {
   //   }, 2000);
   // }, [heightAgl]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSpeed1(0);
-      setSpeed2(Math.floor(Math.random() * (90 - 0 + 1)) + 0);
-    }, 2000);
-  }, [speed1, speed2]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setSpeed1(0);
+  //     setSpeed2(Math.floor(Math.random() * (90 - 0 + 1)) + 0);
+  //   }, 2000);
+  // }, [speed1, speed2]);
 
   return (
     <div className="hub-container">
@@ -70,84 +70,86 @@ const Hud = () => {
       </div>
       <div className="hub-container__center">
         <div className="hub-container__center-top">
-          <div
-            style={{
-              clipPath:
-                speed1 == 0
-                  ? 'none'
-                  : 'polygon(0 0, 91% 0%, 57% 28%, -3% 100%)',
-            }}
-            className="hub-container__center-top-rotate-1"
-          >
-            <img
+          <div className="hub-container__center-top-child">
+            <div
               style={{
-                transform:
-                  speed1 > -180 ? `rotate(${speed1}deg)` : 'rotate(-180deg)',
+                clipPath:
+                  speed1 == 0
+                    ? 'none'
+                    : 'polygon(0 0, 91% 0%, 57% 28%, -3% 100%)',
               }}
-              className="img1-1"
-              src={img1}
-              alt="img1"
-            />
-          </div>
-          <div
-            style={{
-              clipPath:
-                speed1 == 0
-                  ? 'none'
-                  : 'polygon(0 0, 91% 0%, 57% 28%, -3% 100%)',
-            }}
-            className="hub-container__center-top-rotate-2"
-          >
-            <img
-              style={{
-                transform:
-                  speed1 == 0 ? `rotate(${speed2}deg)` : 'rotate(-180deg)',
-              }}
-              className="img1-2"
-              src={img1}
-              alt="img1"
-            />
-          </div>
-          <img className="img2" src={img2} alt="img2" />
-          {/* <img className="img3" src={img3} alt="img3" /> */}
-          {/* <img className="img4" src={img4} alt="img4" />
-          <img className="img5" src={img5} alt="img5" /> */}
-          {/* <img
-            style={{ transform: `rotate3d(0, 1, 0, ${heightAgl}deg)` }}
-            className="img6"
-            src={img6}
-            alt="img6"
-          />
-          <img className="img7" src={img7} alt="img7" /> */}
-          {/* <div className="direction-indicator">
-            <div className="scroll-direction">
-              <div
+              className="hub-container__center-top-rotate-1"
+            >
+              <img
                 style={{
-                  top: heightAgl > 0 ? `${heightAgl * 3.5}px` : '217px',
+                  transform:
+                    speed1 > -180 ? `rotate(${speed1}deg)` : 'rotate(-180deg)',
                 }}
-                className="scrollbar-direction"
-              >
-                {directionIndicators1.map((item, index) => {
-                  return (
-                    <div className="scroll-direction-item" key={index}>
-                      <span>{item}</span>
-                      <img src={img8} alt="img8" />
-                      <span>{item}</span>
-                    </div>
-                  );
-                })}
-                {directionIndicators2.map((item, index) => {
-                  return (
-                    <div className="scroll-direction-item" key={index}>
-                      <span>{item}</span>
-                      <img src={img9} alt="img9" />
-                      <span>{item}</span>
-                    </div>
-                  );
-                })}
+                className="img1-1"
+                src={img1}
+                alt="img1"
+              />
+            </div>
+            <div
+              style={{
+                clipPath:
+                  speed1 == 0
+                    ? 'none'
+                    : 'polygon(0 0, 91% 0%, 57% 28%, -3% 100%)',
+              }}
+              className="hub-container__center-top-rotate-2"
+            >
+              <img
+                style={{
+                  transform:
+                    speed1 == 0 ? `rotate(${speed2}deg)` : 'rotate(-180deg)',
+                }}
+                className="img1-2"
+                src={img1}
+                alt="img1"
+              />
+            </div>
+            <img className="img2" src={img2} alt="img2" />
+            <img className="img3" src={img3} alt="img3" />
+            <img className="img4" src={img4} alt="img4" />
+            <img className="img5" src={img5} alt="img5" />
+            <img
+              style={{ transform: `rotate3d(0, 1, 0, ${heightAgl}deg)` }}
+              className="img6"
+              src={img6}
+              alt="img6"
+            />
+            <img className="img7" src={img7} alt="img7" />
+            <div className="direction-indicator">
+              <div className="scroll-direction">
+                <div
+                  style={{
+                    top: heightAgl > 0 ? `${heightAgl * 3.5}px` : '217px',
+                  }}
+                  className="scrollbar-direction"
+                >
+                  {directionIndicators1.map((item, index) => {
+                    return (
+                      <div className="scroll-direction-item" key={index}>
+                        <span>{item}</span>
+                        <img src={img8} alt="img8" />
+                        <span>{item}</span>
+                      </div>
+                    );
+                  })}
+                  {directionIndicators2.map((item, index) => {
+                    return (
+                      <div className="scroll-direction-item" key={index}>
+                        <span>{item}</span>
+                        <img src={img9} alt="img9" />
+                        <span>{item}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="hub-container__center-bottom">
           <img className="imgDirection" src={imgDirection} alt="imgDirection" />
@@ -179,7 +181,6 @@ const Hud = () => {
             </li>
           </ul>
         </div>
-
         <div className="height-indicator">
           <div className="scroll-icon"></div>
           <div className="scroll">
@@ -189,7 +190,7 @@ const Hud = () => {
               }}
               className="scrollbar"
             >
-              <div className="scroll-number-list">
+              {/* <div className="scroll-number-list">
                 {indicators.map((indicator, key) => {
                   return (
                     <div key={key} className="scroll-number">
@@ -197,7 +198,7 @@ const Hud = () => {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

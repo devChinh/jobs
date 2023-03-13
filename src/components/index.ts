@@ -1,3 +1,4 @@
 import Hud from './Hud';
+import Hud2 from './Hud2';
 
-export { Hud };
+export { Hud, Hud2 };

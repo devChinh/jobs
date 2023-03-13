@@ -1,6 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .hub-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
 }
 
@@ -24,9 +30,16 @@ hub-container .hub-container__center
 }
 
 .hub-container .hub-container__center .hub-container__center-top {
+  width: 70%;
+  height: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-child {
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-rotate-1,
@@ -35,6 +48,17 @@ hub-container .hub-container__center
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-rotate-1 .img1-1,
+.hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-rotate-2 .img1-2 {
+  width: 100%;
+  height: 100%;
+}
+
+.img2 {
   width: 100%;
   height: 100%;
 }
@@ -53,24 +77,24 @@ hub-container .hub-container__center
   width: 38%;
   height: 100%;
   position: absolute;
-  top: 57%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .img6 {
-  width: 20px;
-  height: 20px;
+  width: 3%;
+  height: 3%;
   position: absolute;
-  top: 55%;
-  left: 49%;
+  top: 47%;
+  left: calc(49% - 2px);
   transform: translate(-50%, -50%);
 }
 
 .direction-indicator {
   position: absolute;
   height: 60%;
-  width: 33%;
+  width: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -83,10 +107,14 @@ hub-container .hub-container__center
   overflow-x: clip;
 }
 
+.direction-indicator .scroll-direction span {
+  font-size: 0.7rem;
+}
+
 .direction-indicator .scroll-direction .scrollbar-direction {
   width: 100%;
-  height: 250%;
-  margin-top: -600px;
+  height: 220%;
+  margin-top: -500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,10 +124,12 @@ hub-container .hub-container__center
 
 .hub-container .hub-container__center .hub-container__center-bottom {
   position: relative;
+  height: 20%;
+  width: 100%;
 }
 
 .hub-container .hub-container__center .hub-container__center-bottom .imgDirection {
-  width: 60%;
+  width: 590px;
   margin: 0 auto;
   display: block;
 }
@@ -108,7 +138,7 @@ hub-container .hub-container__center
   position: absolute;
   width: 40%;
   height: 45px;
-  top: 50%;
+  top: 17%;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
@@ -128,13 +158,20 @@ hub-container .hub-container__center
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: end;
-  padding: 20px 30px 0 0;
   color: #6ded79;
+  height: 80%;
+}
+
+.hub-container .hub-container__right .frame-speed {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .hub-container .hub-container__right .height-indicator {
-  height: calc(72% - 5px);
+  height: 72%;
   width: 60%;
   display: flex;
   align-items: center;
@@ -153,16 +190,16 @@ hub-container .hub-container__center
 }
 
 .hub-container .hub-container__right .height-indicator .scroll .scrollbar {
-  margin-top: -700px;
+  /* margin-top: -700px; */
   width: 100%;
-  height: 300%;
+  height: 100%;
   background-image: url('/src//assets/imgs/332135714_745387310550718_1383994131185049594_n.png');
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   transform: rotateX(180deg);
   position: relative;
 }
 
-.hub-container .hub-container__right .height-indicator .scroll-icon {
+/* .hub-container .hub-container__right .height-indicator .scroll-icon {
   width: 50%;
   height: 28px;
   background-image: url('/src/assets/imgs/331960227_761043322044472_8450570221072117528_n.png');
@@ -170,9 +207,9 @@ hub-container .hub-container__center
   background-position: center center;
   cursor: pointer;
   margin-top: 8px;
-}
+} */
 
-.hub-container .hub-container__right .height-indicator .scroll .scrollbar .scroll-number-list {
+/* .hub-container .hub-container__right .height-indicator .scroll .scrollbar .scroll-number-list {
   position: absolute;
   transform: rotateX(180deg);
   height: 91%;
@@ -183,32 +220,76 @@ hub-container .hub-container__center
   flex-direction: column;
   font-size: 1rem;
   justify-content: space-between;
-}
+} */
 
-.hub-container .hub-container__right .frame-speed {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-.hub-container .hub-container__right .frame-speed h3 {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.hub-container .hub-container__right .frame-speed ul {
+.hub-container .hub-container__right ul {
   list-style: none;
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
-.hub-container .hub-container__right .frame-speed ul li{
-  margin-top: 10px;
+@media screen and (max-width: 1024px) {
+  .hub-container {}
+
+  .hub-container .hub-container__left {
+    flex: 1
+  }
+
+  .hub-container .hub-container__center {
+    flex: 4
+  }
+
+  .hub-container .hub-container__center .hub-container__center-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-child {
+    height: 80%;
+    width: 100%;
+    position: relative;
+  }
+
+
+  .hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-rotate-1,
+  .hub-container .hub-container__center .hub-container__center-top .hub-container__center-top-rotate-2 {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .direction-indicator {
+    height: 49%;
+    width: 65%;
+  }
+
+  .direction-indicator .scroll-direction .scrollbar-direction {
+    margin-top: -405px;
+  }
+
+  .hub-container .hub-container__center .hub-container__center-bottom .imgDirection {
+    width: 350px;
+  }
+
+  .hub-container .hub-container__center .hub-container__center-bottom .indicator-bar-direction {
+    top: 10%;
+  }
+
+  .hub-container .hub-container__right {
+    flex: 1;
+    padding: 0;
+  }
+
+  .hub-container .hub-container__right .frame-speed h3 {
+    font-size: initial;
+  }
 }
 
-.hub-container .hub-container__right .frame-speed ul li p:nth-child(2) {
-  font-size: 1.3em;
+@media screen and (max-width: 414px) {
+  .hub-container {
+    background-color: red;
+  }
 }
-
-.hub-container .hub-container__right ul li {}
-
-@media screen and (max-width: 960px) {}
