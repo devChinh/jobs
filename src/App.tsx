@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Hud, Hud2 } from 'components';
-import Test from 'components/Test';
+import RecordPilot from 'pages/RecordPilot';
 
 function App() {
   return (
     <>
-      <Hud2 />
+      <RecordPilot />
     </>
   );
 }
