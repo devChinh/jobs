@@ -1,10 +1,10 @@
-import { SelectGroup } from 'components/recordPilot';
+import { SelectGroup, Header } from 'components/recordPilot';
 import React from 'react';
 
 function RecordPilot() {
   return (
     <div>
-      <SelectGroup />
+      <Header />
     </div>
   );
 }

@@ -2,25 +2,32 @@ import { Box, MenuItem, TextField } from '@mui/material';
 import { AppDispatch, RootState } from 'app/store';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectedGroupAction } from 'stores/recordPilot/slice';
+import { totalSelector } from 'stores/recordPilot/selector';
 import {
-  TOptionsGroup,
-  TOptionsUAV,
-  optionSelected,
-} from 'types/recordPilot/selectGroup';
+  selectedGroupAction,
+  selectedUAVAction,
+} from 'stores/recordPilot/slice';
+import { TOptionGroup, TOptionUAV } from 'types/recordPilot/selectGroup';
 
 function SelectGroup() {
   const dispatch = useDispatch<AppDispatch>();
 
-  const record = useSelector((state: RootState) => state);
-  console.log(record);
+  const record = useSelector(totalSelector);
 
-  const handleChangeGroup = (event: React.ChangeEvent<{ value: string }>) => {
-    dispatch(selectedGroupAction(event.target.value));
-  };
-
-  const handleChangeUAV = (event: React.ChangeEvent<{ value: string }>) => {
-    // dispatch(selectedGroup(event.target.value));
+  const handleChangeSelect = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    string: string,
+  ) => {
+    switch (string) {
+      case 'input1': {
+        dispatch(selectedGroupAction(+event.target.value));
+        break;
+      }
+      case 'input2': {
+        dispatch(selectedUAVAction(+event.target.value));
+        break;
+      }
+    }
   };
 
   return (
@@ -28,26 +35,28 @@ function SelectGroup() {
       <Box sx={{ margin: 5 }}>
         <TextField
           select
+          id="input1"
           label="Select group"
-          value={record?.selectedGroup?.label}
-          onChange={handleChangeGroup}
+          value={record?.groupSelected?.label}
+          onChange={(e) => handleChangeSelect(e, 'input1')}
           sx={{ width: 200 }}
         >
-          {record.groups.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+          {record.groups.map((option: TOptionGroup, index) => (
+            <MenuItem key={index} value={option.id}>
               {option.label}
             </MenuItem>
           ))}
         </TextField>
         <TextField
           select
+          id="input2"
           label="Select UAV"
-          value={record.selectedUav.value}
-          onChange={handleChangeUAV}
+          value={record?.uavSelected?.label}
+          onChange={(e) => handleChangeSelect(e, 'input2')}
           sx={{ width: 200 }}
         >
-          {record.uavs.map((option) => (
-            <MenuItem key={option.id} value={option.value}>
+          {record.uavs.map((option: TOptionUAV, index) => (
+            <MenuItem key={index} value={option.id}>
               {option.label}
             </MenuItem>
           ))}

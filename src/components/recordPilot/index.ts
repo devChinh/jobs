@@ -1,3 +1,4 @@
 import SelectGroup from './SelectGroup';
+import Header from './Header';
 
-export { SelectGroup };
+export { SelectGroup, Header };
